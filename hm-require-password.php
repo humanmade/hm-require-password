@@ -1,7 +1,15 @@
 <?php
+
 /**
- * A plugin to require current user password
- * when a user updates their profile.
+ * Plugin Name: HM Require Password
+ * Plugin URI: https://github.com/humanmade/hm-require-password
+ * Description: A plugin to require current user password when a user updates their profile.
+ * Version: 1.0.0
+ * Author: Jenny Wong
+ * Author URI: http://hmn.md
+ * License: GPL3.0
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain: hm-require-password
  */
 
 add_action( 'show_user_profile', 'hm_require_password_current_pw_fields' );
@@ -11,6 +19,7 @@ add_action( 'edit_user_profile', 'hm_require_password_current_pw_fields' );
  * Display current password field
  * @param $user
  */
+
 function hm_require_password_current_pw_fields( $user ) {
 
 	$label = __( 'Enter your password to update this account.', 'hm-require-password' );
@@ -49,6 +58,7 @@ add_action ( 'user_profile_update_errors', 'hm_require_password_check_current_pw
  *
  * @return bool
  */
+
 function hm_require_password_check_current_pw_fields( $errors, $update, $user ) {
 
 	if( ! isset( $_POST[ 'pass1' ]) || empty( $_POST[ 'pass1' ] ) || ! $update ){

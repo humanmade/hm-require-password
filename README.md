@@ -1,0 +1,1 @@
+# HM-Require-Current-Password
